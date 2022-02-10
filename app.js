@@ -3,7 +3,8 @@
 /******** Sticky menu re-size on scroll */
 
 const imgContainer = document.getElementById('image-container');
-const menuContainer = document.getElementById('menu-container')
+const menuContainer = document.getElementById('menu-container');
+const header = document.getElementById('header');
 /*
 window.onscroll = function() {scrollFunction()};    
 
@@ -18,18 +19,44 @@ function scrollFunction() {
         }
     }
 }   */
+
+
 window.addEventListener('scroll', () => {
     if (window.innerWidth > 700) {
-        if (document.body.scrollTop > 25 || document.documentElement.scrollTop > 25) {
-            imgContainer.style.height = "3.5rem";
-            menuContainer.style.height = "2.5rem";
+        if (document.body.scrollTop > 250 || document.documentElement.scrollTop > 250) {
+          /*  imgContainer.style.height = "3.5rem";
+            menuContainer.style.height = "2.5rem";  */
+            imgContainer.style.display = "flex";
         }   else {
-            imgContainer.style.height = "10rem";
-            menuContainer.style.height = "6rem";
+          /*  imgContainer.style.height = "10rem";
+            menuContainer.style.height = "6rem";    */
+            imgContainer.style.display = "none";
         }
     }
-})
+})          
 
+
+/******** hidden nav bar on scroll */
+
+let newScrollPosition = 0;
+let lastScrollPosition = 0;
+// Header already been declared as 'header'
+
+window.addEventListener('scroll', e => {
+    lastScrollPosition = window.scrollY;
+
+    if (newScrollPosition < lastScrollPosition && lastScrollPosition > 50) {
+        header.classList.remove('slide-down');
+        header.classList.add('slide-up');
+        header.style.transition = "all .5s";
+    }   else if (newScrollPosition > lastScrollPosition) {
+        header.classList.remove('slide-up');
+        header.classList.add('slide-down');
+        header.style.transition = "all .5s";
+    }
+
+    newScrollPosition = lastScrollPosition;
+});
 
 /******** Responsive Menu Toggle */
 
@@ -37,14 +64,44 @@ const menuToggleBtn = document.querySelector('.menu-toggle');
 const menu = document.querySelector('.menu');
 const homePic = document.querySelectorAll('.home-pic');
 
+const navLinks = Array.from(document.querySelectorAll('.nav-link'));
+const body = document.body;
 
 menuToggleBtn.addEventListener('click', () => {
     menuToggleBtn.classList.toggle('active');           // toggle the hamburger menu animaiton
-    menu.classList.toggle('active');                    // toggle the menu 
+    menu.classList.toggle('active');  
+    body.classList.toggle('active');                  // toggle the menu 
   /*  for (let i = 0; i < homePic.length; i += 1) {       // selecting all images to toggle filter greyscale, 
         homePic.item(i).classList.toggle('active');       // z-index has decided to work so this code is unrequired
     }   */
+
+    for (let i = 0; i < navLinks.length; i++) {
+        navLinks[i].addEventListener('click', () => {
+            menuToggleBtn.classList.remove('active');
+            menu.classList.remove('active');
+            body.classList.remove('active');   
+        })
+    }
 })
+
+
+/******** About Me - show more / less */
+
+const dots = document.getElementById('dots');
+const moreTxt = document.getElementById('more-text');
+const moreTxtBtn = document.getElementById('more-text-button');
+
+moreTxtBtn.addEventListener('click', () => {
+    if (dots.style.display === "none") {
+        dots.style.display = "inline";
+        moreTxtBtn.innerHTML = "Show More";
+        moreTxt.style.display = "none";
+    }   else {
+        dots.style.display = "none";
+        moreTxtBtn.innerHTML = "Show Less";
+        moreTxt.style.display = "inline";
+    };
+});
 
 
 /******** Play / Pause audio */
@@ -63,22 +120,25 @@ for (let i = 0; i < playPauseBtns.length; i++) {        // selecting the play bu
         function playPause(e) {
             if (demo.paused) {
                 demo.play();
-                playPauseBtn.src='images/play/pause-button.png';
+              /*  playPauseBtn.src='images/play/pause.png'; */
+                playPauseBtn.src="images/play/pause-button (1).png";
             }   else {
                 demo.pause();
-                playPauseBtn.src='images/play/play.png';
+              /*  playPauseBtn.src='images/play/play 2.png';    */
+                playPauseBtn.src="images/play/play-button (1).png";
             }
         }
         playPause();
         demo.addEventListener('ended', () => {
-            playPauseBtn.src='images/play/play.png';
+          /*  playPauseBtn.src="images/play/play 2.png";    */
+            playPauseBtn.src="images/play/play-button (1).png";
         })
     })
 }   
 
 
 
-/******** Reviews Slideshow */
+/******** Reviews Slides */
 
 const reviewSlide = document.getElementsByClassName('review-slide');
 
