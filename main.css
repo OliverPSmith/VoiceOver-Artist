@@ -366,6 +366,17 @@ header {
     line-height: 1.65;
 }
 
+.about-container a {
+    text-decoration: none;
+    font-style: oblique;
+    color: var(--color-flair);
+    font-size: 17px;
+}
+
+.about-container a:hover {
+    text-decoration: underline 1px solid var(--color-flair);
+}
+
 #more-text {
     display: none;
 }
@@ -418,28 +429,124 @@ header {
     letter-spacing: 1px;
 }
 
+.audio-sound-1 { grid-area: a-s-1; }
+.audio-sound-2 { grid-area: a-s-2; }
+.audio-sound-3 { grid-area: a-s-3; }
+.audio-sound-4 { grid-area: a-s-4; }
+.services-offered { grid-area: s-o; }
+
 .demos-container {
     width: 100%;
-    display: flex;
+  /*  display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;    */
+
+    display: grid;
+    grid-template-areas: 
+        'a-s-1 a-s-1 a-s-1 a-s-1 s-o s-o'
+        'a-s-2 a-s-2 a-s-2 a-s-2 s-o s-o'
+        'a-s-3 a-s-3 a-s-3 a-s-3 s-o s-o'
+        'a-s-4 a-s-4 a-s-4 a-s-4 s-o s-o';
+    justify-content: space-evenly;
+}
+
+/*********** Services Section */
+
+.services-offered {
+    background-color: var(--color-sec);
+    margin-right: 10px;
+    margin-bottom: 2em;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    padding: 20px;
+
+    inline-size: 400px;
+
+    font-family: var(--font-fam-main);
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 1.65;
+}
+
+.services-offered h3 {
+    font-family: var(--font-fam-sec);
+    margin: 0px 0px 2em 0px;
+}
+
+.services-offered-section div {
+    display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
 
+.services-offered-section div p {
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid var(--color-flair);
+    border-radius: 4px;
+}
+
+.services-offered-section div p:hover {
+    background: var(--color-main);
+}
+
+.services-offered-section h5 {
+    font-size: 20px;
+    font-weight: bolder;
+    margin-top: 1em;
+}
+
+.voice-styles h5 {
+    margin-top: 0em;
+}
+
+.services-offered-section p a {
+    text-decoration: none;
+    font-style: oblique;
+    color: var(--color-flair);
+    font-size: 17px;
+}
+.services-offered-section p a:hover {
+    text-decoration: underline 1px solid var(--color-flair);
+}
+
+/*********** Demos Section */
+
 .audio-container {
     display: flex;
-    flex-direction: row;
+    flex-direction: row;  
+  /*  flex-direction: column;   */
+
     align-items: center;
-    justify-content: space-evenly;
-    width: 80%;
-    height: auto;
-    margin: 1.5em 2em 3em 2em;
+    justify-content: space-evenly;    
+  /*  justify-content: flex-start;      */
+
+  /*  width: 80%;   most recent */          /* all of these commented out are for the old size and shape, should the client re-change mind */
+  /*  width: 40%;   */
+
+   /* height: auto; */
+   /* height: 25rem;    */
+
+    margin: 1.5em 2em 3em 2em;    
+  /*  margin: 1.5em 2em 0em 2em;    */
+
     padding: 0px 25px;
     border-radius: 5px;
 }
+
+.audio-container:nth-child(3) {
+  /*  margin-bottom: 2em;   */
+}
+
 .audio-container:nth-child(4) {
-    margin-bottom: 4.5em;
+   /* margin-bottom: 4.5em;     */
+    margin-bottom: 2em;
 }
 .audio-container:hover   {
   background-color: var(--color-sec);
@@ -468,29 +575,22 @@ header {
 }
 
 .audio-sound {
-    margin-right: 20px;
+  /*  margin-right: 20px;   */
     background-size: cover;
-    width: 40%;
-    background-image: url(images/Studio/studio6.jpeg);
-    background-position: 50% 40%;
+  /*  width: 40%;   */
+    width: 90%;
+    height: 14rem;          /* previously none*/
+    display: flex;                  /* previously none*/
+    flex-direction: column;         /* previously none*/
+    justify-content: flex-end;      /* previously none*/
+    padding-bottom: 2px;            /* previously none*/
+    background-image: url(images/Studio/studio10.jpeg);
+  /*  background-position: 50% 40%;    this is for the old picture (i think studio6)     */
+    background-position: 90% 30%;
+
+    border-radius: 4px;
 }
-/*
-.one {
-    background-image: url(images/Studio/studio6.jpeg);
-    background-position: 50% 40%;
-}
-.three {
-    background-image: url(images/Studio/studio1.jpeg);
-    background-position: 50% 40%;
-}
-.two {
-    background-image: url(images/Studio/studio7.jpeg);
-    background-position: 50% 60%;
-}
-.four {
-    background-image: url(images/Studio/studio8.jpeg);
-    background-position: 50% 60%;
-}   */
+
 
 audio {
     height: 1.5rem;
@@ -500,9 +600,11 @@ audio {
 
 
 .audio-text-container {
-    width: 50%;
+   /* width: 50%;   */
+    width: 40%;
     height: auto;
     margin: 3em 0em;
+    padding-left: 20px;
 }
 
 .audio-text-container p {
@@ -532,7 +634,30 @@ audio::-webkit-media-controls-current-time-display, audio::-webkit-media-control
     font-size: 1.6em;
 }
 
+@media only screen and (max-width: 1000px) {
+    .services-offered {
+        inline-size: 350px;
+    }
+}
+
 @media only screen and (max-width: 700px) {
+    .demos-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .services-offered {
+        background-color: var(--color-main);
+        margin-right: 0px;
+        margin-bottom: 2em;
+        width: 100%;
+    }
+
+    .services-offered p {
+        width: 100%;
+    }
+
     .audio-container {
         margin: 2em 2em;
         flex-direction: column;
@@ -540,6 +665,10 @@ audio::-webkit-media-controls-current-time-display, audio::-webkit-media-control
         justify-content: center;
         margin: 1em;
         margin-bottom: 2em;
+
+        height: 18rem;
+
+        
     }
 
     .audio-sound {
