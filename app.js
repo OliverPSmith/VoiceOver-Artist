@@ -4,20 +4,6 @@
 const imgContainer = document.getElementById('image-container');
 const menuContainer = document.getElementById('menu-container');
 const header = document.getElementById('header');
-/*
-window.onscroll = function() {scrollFunction()};    
-
-function scrollFunction() {
-    if (window.innerWidth > 700) {
-        if (document.body.scrollTop > 25 || document.documentElement.scrollTop > 25) {
-            imgContainer.style.height = "3.5rem";
-            menuContainer.style.height = "2.5rem";
-        }   else {
-            imgContainer.style.height = "10rem";
-            menuContainer.style.height = "6rem";
-        }
-    }
-}   */
 
 
 window.addEventListener('scroll', () => {
@@ -32,7 +18,7 @@ window.addEventListener('scroll', () => {
             imgContainer.style.display = "none";
         }
     }
-})          
+});
 
 
 /******** hidden nav bar on scroll */
@@ -112,7 +98,7 @@ for (let i = 0; i < playPauseBtns.length; i++) {        // selecting the play bu
     playPauseBtn.addEventListener('click', (e) => {
         console.log('test');
         let playPauseBtn = e.target;                                        // <- selecting the clicked button as an event to..
-        const audioOption = playPauseBtn.parentElement.parentElement;       //<- ..then selection the parent element..
+        const audioOption = playPauseBtn.parentElement.parentElement;       //<- ..then select the parent element..
         console.log(playPauseBtn.parentElement.parentElement);
         const demo = audioOption.getElementsByClassName('demo')[0];         //<- ..to then select the child within the parent element
 
@@ -182,4 +168,3 @@ function showSlides() {
     setTimeout(showSlides, 6000);
 
 };
-
