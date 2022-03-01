@@ -520,7 +520,7 @@ header {
 
 .audio-container {
     display: flex;
-    flex-direction: row;  
+    flex-direction: column;  
   /*  flex-direction: column;   */
 
     align-items: center;
@@ -536,7 +536,7 @@ header {
     margin: 1.5em 2em 3em 2em;    
   /*  margin: 1.5em 2em 0em 2em;    */
 
-    padding: 0px 25px;
+  /*  padding: 0px 25px;    */
     border-radius: 5px;
 }
 
@@ -601,9 +601,9 @@ audio {
 
 .audio-text-container {
    /* width: 50%;   */
-    width: 40%;
+    width: 100%;
     height: auto;
-    margin: 3em 0em;
+    margin: 1em 0em 3em 1.5em;
     padding-left: 20px;
 }
 
@@ -668,7 +668,7 @@ audio::-webkit-media-controls-current-time-display, audio::-webkit-media-control
 
         height: 18rem;
 
-        
+        padding: 0px 25px;
     }
 
     .audio-sound {
@@ -1033,4 +1033,53 @@ textarea {
     .icon-wrapper {
         margin-bottom: 0em;
     }
+}
+
+
+/****** Spotlight icon imported from spotlight */
+
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,700,700i);
+
+.spotlight-icon {
+    margin-top: .5em;
+}
+
+@media only screen and (max-width: 700px) {
+    .spotlight-icon {
+        margin-top: 1em;
+    }
+}
+
+.pill-link-ftWlfDH57w {
+    text-decoration: none;
+}
+
+
+
+.pill-ftWlfDH57w {
+    background-color: #4e4d92;
+    max-width: 100%;
+    padding: 4px 6px;
+    border-radius: 17.5px;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -ms-flex-align: center;
+    align-items: center;
+    font-family: Source Sans Pro, sans-serif;
+}
+
+.pill__icon-img-ftWlfDH57w {
+    height: 20px;
+}
+
+.pill__children-container-ftWlfDH57w {
+    font-size: 10px;
+    color: #fff;
+    padding-bottom: 1px;
+    margin: 0 4px;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: 600;
 }
