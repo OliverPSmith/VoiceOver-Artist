@@ -1,4 +1,5 @@
 
+
 /******** Sticky menu re-size on scroll */
 
 const imgContainer = document.getElementById('image-container');
